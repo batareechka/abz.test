@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="19" height="24" viewBox="0 0 19 24">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #c7cdd9;
-        fill-rule: evenodd;
-      }
-    </style>
-  </defs>
-  <path id="Services" class="cls-1" d="M224.5,258h-16a1.5,1.5,0,0,1-1.5-1.5v-21a1.5,1.5,0,0,1,1.5-1.5h16a1.5,1.5,0,0,1,1.5,1.5v21A1.5,1.5,0,0,1,224.5,258Zm-16-23a0.5,0.5,0,0,0-.5.5v21a0.5,0.5,0,0,0,.5.5h16a0.5,0.5,0,0,0,.5-0.5v-21a0.5,0.5,0,0,0-.5-0.5h-16Zm14.5,8H210v-2h13v2Zm0-4h-9v-2h9v2Zm0,16H210v-2h13v2Zm0-4H210v-2h13v2Zm0-4H210v-2h13v2Z" transform="translate(-207 -234)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="19" height="24" viewBox="0 0 19 24"><defs><style>.cls-1 { fill: #c7cdd9; fill-rule: evenodd; }</style></defs><path id="Services" class="cls-1" d="M17.5 24h-16A1.5 1.5 0 0 1 0 22.5v-21A1.5 1.5 0 0 1 1.5 0h16A1.5 1.5 0 0 1 19 1.5v21a1.5 1.5 0 0 1-1.5 1.5zM1.5 1a.5.5 0 0 0-.5.5v21a.5.5 0 0 0 .5.5h16a.5.5 0 0 0 .5-.5v-21a.5.5 0 0 0-.5-.5h-16zM16 9H3V7h13v2zm0-4H7V3h9v2zm0 16H3v-2h13v2zm0-4H3v-2h13v2zm0-4H3v-2h13v2z"/></svg>
