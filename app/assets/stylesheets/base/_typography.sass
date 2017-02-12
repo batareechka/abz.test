@@ -1,0 +1,44 @@
+@font-face 
+    font-family: "Proxima Nova Regular"
+    src: local('ProximaNova'),
+    url("fonts/ProximaNova/ProximaNova-Regular.woff") format("woff"),
+    url("fonts/ProximaNova/ProximaNova-Regular.ttf") format("ttf"),
+    url("fonts/ProximaNova/ProximaNova-Regular.eot") format("eot")
+    font-style: normal
+    font-weight: normal
+
+body
+  font-family: "Proxima Nova Regular", "Myriad Pro Regular", sans-serif
+  font-size: 16px
+
+h1
+  font-size: 30px
+  font-weight: normal;
+  line-height: 42px
+  color: #1c2534
+
+h4
+  font-size: 14px
+  font-weight: normal
+  line-height: 42px
+  color: #7c8695
+
+ul[class$="-list"]
+  .item
+    &-name
+      font-size: 16px
+      // line-height: 42px
+      color: #1c2534
+
+    &-role, &-location, &-description
+      font-size: 14px
+      // line-height: 42px
+      color: #7c8695
+
+  .follow-link, .add-link
+    font-size: 12px
+    color: #1c2534
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline

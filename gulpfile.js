@@ -25,11 +25,11 @@ gulp.task('serve', function() {
 });
 
 gulp.task('sass', function(){
-  return gulp.src('app/assets/stylesheets/application.sass')
+  return gulp.src('app/assets/stylesheets/main.sass')
   .pipe(sourcemaps.init())
   .pipe(sass())
   .pipe(autoprefixer())
-  .pipe(cssmin())
+  // .pipe(cssmin())
   .pipe(rename({suffix: '.min'}))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('dist'))
@@ -49,7 +49,7 @@ gulp.task('copy', function() {
 });
 
 gulp.task('build', [
-  'clean',
+  // 'clean',
   'sass',
   'copy']
   );

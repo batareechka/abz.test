@@ -1,0 +1,46 @@
+.main-navigation
+  width: 212px  
+  margin-bottom: 8px
+
+  .menu
+    // font-size: 16px
+    // line-height: 42px
+
+  .menu-item
+    height: 51px    
+    border-bottom: 1px solid #e0e2e6
+    letter-spacing: .5px;
+
+    a
+      position: relative
+      display: block
+      padding: 17px 17px 17px 51px
+      vertical-align: top
+      color: #59606b
+      text-decoration: none
+
+      &:hover
+        text-decoration: underline
+
+      &:before
+        content: ''
+        position: absolute
+        top: 13px
+        left: 0
+        width: 24px
+        height: 24px
+        background-position: 100% 0
+        background-repeat: no-repeat
+
+  .feed-link:before
+    background-image: url('images/icons/Feed.svg')
+
+  .ask-link:before
+    background-image: url('images/icons/Ask.svg')
+
+  .companies-link:before
+    background-image: url('images/icons/Companies.svg')
+
+  .services-link:before
+    background-image: url('images/icons/Services.svg')
+

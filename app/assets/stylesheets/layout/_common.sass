@@ -1,0 +1,58 @@
+section
+  position: relative
+
+.wrapper
+  width: 970px
+  margin: 0 auto
+  padding: 0 15px
+
+.left
+  float: left
+
+.right
+  float: right
+  width: 213px
+
+.clearfix:after
+  content: ''
+  display: table
+  clear: both
+
+.btn
+  padding: 0 19px
+  font-family: "Proxima Nova Regular", "Myriad Pro Regular", sans-serif
+  font-size: 12px
+  line-height: 30px
+  letter-spacing: 1.5px
+  color: #fff
+  border-radius: 5px
+  background-color: #87b448
+  cursor: pointer
+  outline: none
+
+.see-all-link
+  position: absolute
+  top: 0
+  right: 0
+  font-size: 14px
+  line-height: 42px
+  color: #1c2534
+  text-decoration: none
+
+  &:hover
+    text-decoration: underline
+
+ul[class$="-list"]
+  li
+    margin-bottom: 20px
+    
+  .item-img-wrapper
+    margin-right: 10px
+    font-size: 0
+
+  .item-img-link
+    display: inline-block
+    width: 80px
+    height: 80px
+    border-radius: 5px
+    overflow: hidden

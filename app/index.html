@@ -2,256 +2,275 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>abz.test</title>
   
   <!-- FONTS -->
   
-  <!-- CSS LIBS -->
-  
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="application.min.css">
-
+  <link rel="stylesheet" type="text/css" href="main.min.css">
 </head>
 
 <body>
   <header class="main-header">
-    <div class="container">
-      <a href="#" class=".logo-link">
-        <img src="assets/images/logo.png" alt="logo" width="130" height="40" >
+    <div class="wrapper">
+      <a href="#" class="logo-link">
+        <img src="images/logo.png" alt="logo" width="130" height="40" >
+      </a>           
+      <a href="#" class="user-link">
+        <img src="images/user_avatar_small.jpg" alt="user_avatar" width="34" height="34" class="user-avatar">
+        <div class="user-name">Maximillian Beekeeper</div>
       </a>
-      <input type="search" name="search" class="search-input">
-      <a href="#">chat</a>
-      <a href="#">notifications</a>
-      <a href="#"><img src="assets/images/user_avatar_small.jpg" alt="user_avatar">Maximillian Beekeeper</a>
+      <div class="icons-link-wrapper">
+        <a href="#" class="notifications-link">Notifications</a>
+        <a href="#" class="chat-link">Chat</a>        
+      </div>
+      <input type="text" name="search" placeholder="Company name" class="search-input">
     </div>    
   </header>
 
-  <aside class="sidebar">
-    <nav>
-      <ul class="sidebar-menu">
-        <li class="menu-item">
-          <a href="#">Feed</a>            
+  <div class="wrapper">
+    <aside class="sidebar left">
+
+      <nav class="main-navigation">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="#" class="feed-link">Feed</a>            
+          </li>
+          <li class="menu-item">
+            <a href="#" class="ask-link">Ask a Collegue</a>            
+          </li>
+          <li class="menu-item">
+            <a href="#" class="companies-link">Companies</a>            
+          </li>
+          <li class="menu-item">
+            <a href="#" class="services-link">Service Directory</a>            
+          </li>
+        </ul>
+      </nav>
+
+      <section class="advertisement-section">
+        <h4 class="section-header">Advertisement</h4>
+        <div class="adv-img-wrapper">
+          <img src="images/advertisement_poster-1.jpg" alt="advertisement img" width="210" height="300">
+        </div>
+        <footer class="adv-footer">Ads By Denteez.com</footer>
+      </section>
+
+      <section class="featured-companies-section">
+        <h4 class="section-header">Featured Companies</h4>
+        <a href="#" class="see-all-link">See All</a>
+        <ul class="companies-list">
+          <li class="companies-item clearfix">
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/company_1_small.jpg" alt="img" width="80" height="80">
+              </a>              
+            </div>
+            <div class="item-name">Company Name</div>
+            <div class="item-role">Manufacturer</div>
+            <div class="item-location">Belgrade, Serbia</div>
+            <a href="#" class="follow-link">Follow Now</a>
+          </li>
+          <li class="companies-item clearfix">
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/company_2_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>
+            <div class="item-name">Company Name</div>
+            <div class="item-role">Service Provider</div>
+            <div class="item-location">New York, USA</div>
+            <a href="#" class="follow-link">Follow Now</a>
+          </li>
+          <li class="companies-item clearfix">
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/company_3_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>
+            <div class="item-name">Company Name</div>
+            <div class="item-role">Supplier</div>
+            <div class="item-location">London, England</div>
+            <a href="#" class="follow-link">Follow Now</a>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="main-footer">
+        <div class="copyright">Denteez Copyright 2015</div>
+        <a href="#" class="footer-link">Terms of use</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+      </footer>
+    </aside>   
+
+    <aside class="sidebar right">
+      <section class="people-section">
+        <h4 class="section-header">People you may know</h4>
+        <a href="#" class="see-all-link">See All</a>
+        <ul class="people-list">
+          <li class="people-item clearfix">
+            <div class="item-name">Dennis Adams</div>
+            <div class="item-img-wrapper left">
+            <a href="#" class="item-img-link">
+              <img src="images/user_1_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-role">Dentist(Practice Owner)</div>
+            <div class="item-location">London, England</div>
+            <a href="#" class="add-link">Add Friend</a>
+          </li>
+          <li class="people-item clearfix">
+            <div class="item-name">Mary Carpenter</div>
+            <div class="item-img-wrapper left">
+            <a href="#" class="item-img-link">
+              <img src="images/user_2_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-role">Dentist(Practice Owner)</div>
+            <div class="item-location">Belgrade, Serbia</div>
+            <a href="#" class="add-link">Add Friend</a>
+          </li>
+          <li class="people-item clearfix">
+            <div class="item-name">Danielle Salazar</div>
+            <div class="item-img-wrapper left">
+            <a href="#" class="item-img-link">
+              <img src="images/user_3_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>
+            <div class="item-role">Dentist(Practice Owner)</div>
+            <div class="item-location">Paris, France</div>
+            <a href="#" class="add-link">Add Friend</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="featured-products-section">
+        <h4 class="section-header">Featured Products</h4>
+        <a href="#" class="see-all-link">See All</a>
+        <ul class="products-list">
+          <li class="product-item clearfix">
+            <div class="item-name">Product Name</div>
+            <div class="item-img-wrapper left">
+            <a href="#" class="item-img-link">
+              <img src="images/product_1_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-description">Product Short Description.<br>The quick brown fox jumps over the lazy dog.</div>
+          </li>
+          <li class="product-item clearfix">
+            <div class="item-name">Product Name</div>
+            <div class="item-img-wrapper left">
+            <a href="#" class="item-img-link">
+              <img src="images/product_2_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-description">Product Short Description.<br>The quick brown fox jumps over the lazy dog.</div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="advertisement-section">
+        <h4 class="section-header">Advertisement</h4>
+        <div class="adv-img-wrapper">
+          <img src="images/advertisement_poster-2.jpg" alt="advertisement img" width="210" height="300">
+        </div>
+        <footer class="adv-footer">Ads By Denteez.com</footer>
+      </section>
+    </aside>
+
+    <main class="main-content">
+      <h1 class="page-header">Service Directory</h1>
+      <button class="btn btn-add-service">Add New Service</button>
+
+      <ul class="services-list">
+        <li class="service-item">
+          <div class="service-icon">icon</div>
+          <div class="service-name">Accountancy</div>
         </li>
-        <li class="menu-item">
-          <a href="#">Ask a Collegue</a>            
+        <li class="service-item">
+          <div class="service-icon">icon</div>
+          <div class="service-name">Associations</div>
         </li>
-        <li class="menu-item">
-          <a href="#">Companies</a>            
+        <li class="service-item">
+          <div class="service-icon">icon</div>
+          <div class="service-name">Buy/Sell Dental Practice</div>
         </li>
-        <li class="menu-item">
-          <a href="#">Service derectory</a>            
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Clinical Waste Collection</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Computer Service</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">CPR/Basic Life Support Training</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Dental Recruitment</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Dental Software</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Electrical Safety And Testing</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Marketing</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Others</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Repairs</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Solicitors</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Surgery Design</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Training & Courses</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Web Designers</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Cleaning Agencies</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Dental Chair Recovery</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Eqquipment Engineering</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Selling Gold</div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon"></div>
+          <div class="service-name">Uniform & Workwear</div>
         </li>
       </ul>
-    </nav>
-
-    <section class="advertisement-section">
-      <h2 class="section-header">Advertisement</h2>
-      <div class="adv-img-wrapper">
-        <img src="assets/images/advertisement_poster-1.jpg" alt="advertisement img" width="210" height="300">
-      </div>
-      <div class="adv-footer">Ads By Denteez.com</div>
-    </section>
-
-    <section class="companies-section">
-      <h2 class="section-header">Featured Companies</h2>
-      <a href="#">See All</a>
-      <ul class="companies-list">
-        <li class="companies-item">
-          <div class="item-img-wrapper">
-            <img src="assets/images/company_1_small.jpg" alt="img" width="80" height="80">
-          </div>
-          <div class="item-name">Company Name</div>
-          <div class="item-role">Manufacturer</div>
-          <div class="item-location">Belgrade, Serbia</div>
-          <a href="#" class="item-link follow-link">Follow Now</a>
-        </li>
-        <li class="companies-item">
-          <div class="item-img-wrapper">
-            <img src="assets/images/company_2_small.jpg" alt="img" width="80" height="80">
-          </div>
-          <div class="item-name">Company Name</div>
-          <div class="item-role">Service Provider</div>
-          <div class="item-location">New York, USA</div>
-          <a href="#" class="item-link follow-link">Follow Now</a>
-        </li>
-        <li class="companies-item">
-          <div class="item-img-wrapper">
-            <img src="assets/images/company_3_small.jpg" alt="img" width="80" height="80">
-          </div>
-          <div class="item-name">Company Name</div>
-          <div class="item-role">Supplier</div>
-          <div class="item-location">London, England</div>
-          <a href="#" class="item-link follow-link">Follow Now</a>
-        </li>
-      </ul>
-    </section>
-
-    <footer class="main-footer">
-      <div class="copyright">Denteez Copyright 2015</div>
-      <a href="#" class="footer-link">Terms of use</a>
-      <a href="#" class="footer-link">Privacy Policy</a>
-    </footer>
-  </aside>
-
-  <main>
-    <h1 class="page-header">Service Directory</h1>
-    <button>Add New Service</button>
-
-    <ul class="services-list">
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Accountancy</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Associations</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Buy/Sell Dental Practice</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Clinical Waste Collection</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Computer Service</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">CPR/Basic Life Support Training</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Dental Recruitment</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Dental Software</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Electrical Safety And Testing</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Marketing</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Others</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Repairs</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Solicitors</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Surgery Design</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Training & Courses</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Web Designers</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Cleaning Agencies</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Dental Chair Recovery</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Eqquipment Engineering</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Selling Gold</div>
-      </li>
-      <li class="service-item">
-        <div class="service-icon"></div>
-        <div class="service-name">Uniform & Workwear</div>
-      </li>
-    </ul>
-  </main>
-
-  <aside class="sidebar">
-    <section class="people-section">
-      <h2 class="section-header">People you may know</h2>
-      <a href="#">See All</a>
-      <ul class="people-list">
-        <li class="people-item">
-          <div class="item-name">Dennis Adams</div>
-          <div class="item-img-wrapper">
-            <img src="assets/images/user_1_small.jpg" alt="img" width="80" height="80">
-          </div>            
-          <div class="item-role">Dentist(Practice Owner)</div>
-          <div class="item-location">London, England</div>
-          <a href="#" class="item-link follow-link">Add Friend</a>
-        </li>
-        <li class="people-item">
-          <div class="item-name">Mary Carpenter</div>
-          <div class="item-img-wrapper">
-            <img src="assets/images/user_2_small.jpg" alt="img" width="80" height="80">
-          </div>            
-          <div class="item-role">Dentist(Practice Owner)</div>
-          <div class="item-location">Belgrade, Serbia</div>
-          <a href="#" class="item-link follow-link">Add Friend</a>
-        </li>
-        <li class="people-item">
-          <div class="item-name">Danielle Salazar</div>
-          <div class="item-img-wrapper">
-            <img src="assets/images/user_3_small.jpg" alt="img" width="80" height="80">
-          </div>
-          <div class="item-role">Dentist(Practice Owner)</div>
-          <div class="item-location">Paris, France</div>
-          <a href="#" class="item-link follow-link">Add Friend</a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="products-section">
-      <h2 class="section-header">Featured Products</h2>
-      <a href="#">See All</a>
-      <ul class="products-list">
-        <li class="product-item">
-          <div class="item-name">Product Name</div>
-          <div class="item-img-wrapper">
-            <img src="assets/images/product_1_small.jpg" alt="img" width="80" height="80">
-          </div>            
-          <div class="item-description">Product Short Description. The quick brown fox jumps over the lazy dog.</div>
-        </li>
-        <li class="product-item">
-          <div class="item-name">Product Name</div>
-          <div class="item-img-wrapper">
-            <img src="assets/images/product_2_small.jpg" alt="img" width="80" height="80">
-          </div>            
-          <div class="item-description">Product Short Description. The quick brown fox jumps over the lazy dog.</div>
-        </li>
-      </ul>
-    </section>
-
-    <section class="advertisement-section">
-      <h2 class="section-header">Advertisement</h2>
-      <div class="adv-img-wrapper">
-        <img src="assets/images/advertisement_poster-2.jpg" alt="advertisement img" width="210" height="300">
-      </div>
-      <div class="adv-footer">Ads By Denteez.com</div>
-    </section>
-  </aside>
-
-
+    </main>
+  </div>
 </body>
 
 </html>
