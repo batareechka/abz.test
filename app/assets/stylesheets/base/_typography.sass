@@ -1,14 +1,15 @@
 @font-face 
     font-family: "Proxima Nova Regular"
     src: local('ProximaNova'),
-    url("fonts/ProximaNova/ProximaNova-Regular.woff") format("woff"),
-    url("fonts/ProximaNova/ProximaNova-Regular.ttf") format("ttf"),
-    url("fonts/ProximaNova/ProximaNova-Regular.eot") format("eot")
+    url("fonts/ProximaNovaRegular/ProximaNova-Regular.woff") format("woff"),
+    url("fonts/ProximaNovaRegular/ProximaNova-Regular.ttf") format("ttf"),
+    url("fonts/ProximaNovaRegular/ProximaNova-Regular.eot") format("eot")
     font-style: normal
     font-weight: normal
 
 body
-  font-family: "Proxima Nova Regular", "Myriad Pro Regular", sans-serif
+  // font-family: "Proxima Nova Regular", "Myriad Pro Regular", sans-serif
+  font-family: "Proxima Nova Regular", sans-serif
   font-size: 16px
 
 h1
@@ -23,7 +24,7 @@ h4
   line-height: 42px
   color: #7c8695
 
-ul[class$="-list"]
+.list
   .item
     &-name
       font-size: 16px
