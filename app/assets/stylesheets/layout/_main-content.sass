@@ -2,15 +2,15 @@
   position: relative
   margin-right: 229px
   margin-left: 226px  
-  padding: 9px 0
+  // padding: 9px 0
 
   .page-header
-    margin-bottom: 16px
-    line-height: 37px
+    margin-bottom: 17px
+    line-height: 34px
 
   .btn-add-service
     position: absolute
-    top: 12px
+    top: 1px
     right: 1px
 
 .services-list
@@ -22,9 +22,17 @@
 .service-item
   display: inline-block
   margin: 0 8px
-  margin-bottom: 0 !important
+  // margin-bottom: 0 !important
   width: 140px
   vertical-align: top
+  cursor: pointer
+
+  &:hover
+    .service-icon
+      background-color: #f4f7fb
+
+    .service-name
+      color: #71973c
 
   &:nth-child(1)
     .service-icon
@@ -94,7 +102,7 @@
   .service-icon
     width: 140px
     height: 140px
-    margin-bottom: 7px
+    margin-bottom: 4px
     border: 1px solid #e0e2e6
     background-repeat: no-repeat
     background-position: center
