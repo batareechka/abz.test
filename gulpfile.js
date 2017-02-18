@@ -11,6 +11,39 @@ const sourcemaps = require('gulp-sourcemaps');
 const newer = require('gulp-newer');
 const autoprefixer = require('gulp-autoprefixer');
 
+const path = {
+  styles: {
+    watch: './app/assets/stylesheets/**/*',
+    input: './app/assets/stylesheets/application.sass',
+    output: './dist/stylesheets/'
+  },
+
+  scripts: {
+    watch: './app/assets/javascripts/**/*',
+    input: './app/assets/javascripts/application.js',
+    output: './dist/javascripts/'
+  },
+
+  html: {
+    watch: './app/index.html',
+    input: './app/index.html',
+    output: './dist/'
+  },
+
+  fonts: {
+    watch: './app/assets/fonts/**/*',
+    input: './app/assets/fonts/**/*',
+    output: './dist/fonts/'
+  },
+
+  images: {
+    watch: './app/assets/images/**/*',
+    input: './app/assets/images/**/*',
+    output: './dist/images/'
+  } 
+
+};
+
 
 //const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
@@ -24,16 +57,40 @@ gulp.task('serve', function() {
   // browserSync.watch('dist/**/*.*').on('change', browserSync.reload);
 });
 
-gulp.task('sass', function(){
-  return gulp.src('app/assets/stylesheets/main.sass')
+gulp.task('styles', function(){
+  return gulp.src(path.styles.input)
   .pipe(sourcemaps.init())
   .pipe(sass())
+  .on('error', sass.logError)
   .pipe(autoprefixer())
   // .pipe(cssmin())
   .pipe(rename({suffix: '.min'}))
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest('dist'))
+  .pipe(gulp.dest(path.styles.output))
   .pipe(browserSync.stream());
+});
+
+gulp.task('scripts', function() {
+
+});
+
+gulp.task('html', function() {
+  return gulp.src(path.html.input)
+  .pipe(newer('dist'))
+  .pipe(gulp.dest(path.html.output))
+
+});
+
+gulp.task('fonts', function() {
+  return gulp.src(path.fonts.input)
+  .pipe(newer('dist'))
+  .pipe(gulp.dest(path.fonts.output));
+});
+
+gulp.task('images', function() {
+  return gulp.src(path.images.input)
+  .pipe(newer('dist'))
+  .pipe(gulp.dest(path.images.output));
 });
 
 gulp.task('clean', function(done) {
@@ -41,23 +98,20 @@ gulp.task('clean', function(done) {
   done();
 });
 
-gulp.task('copy', function() {
-  return gulp.src('app/index.html')
-  .pipe(newer('dist'))
-  .pipe(debug({title: 'index'}))
-  .pipe(gulp.dest('dist'));
-});
 
 gulp.task('build', [
   // 'clean',
-  'sass',
-  'copy']
+  'styles',
+  'scripts',
+  'fonts',
+  'images',
+  'html']
   );
 
 gulp.task('watch', ['serve'], function() {
-  gulp.watch('app/assets/stylesheets/**/*', ['sass'] );
-  gulp.watch('app/index.html', ['copy'] );
-  debug({title: 'watchDone'});
+  gulp.watch(path.styles.watch, ['styles'] );
+  gulp.watch(path.scripts.watch, ['scripts'] );
+  gulp.watch(path.html.watch, ['html'] );
 });
 
 gulp.task('dev', ['build', 'watch']);
