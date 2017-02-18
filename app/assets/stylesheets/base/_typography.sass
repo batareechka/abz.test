@@ -1,10 +1,10 @@
 @font-face
   font-family: 'Proxima Nova Regular'
-  src: url('fonts/ProximaNovaRegular/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
-  url('fonts/ProximaNovaRegular/ProximaNova-Regular.otf')  format('opentype'),
-  url('fonts/ProximaNovaRegular/ProximaNova-Regular.woff') format('woff'),
-  url('fonts/ProximaNovaRegular/ProximaNova-Regular.ttf')  format('truetype'),
-  url('fonts/ProximaNovaRegular/ProximaNova-Regular.svg#ProximaNova-Regular') format('svg')
+  src: url('../fonts/ProximaNovaRegular/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/ProximaNovaRegular/ProximaNova-Regular.otf')  format('opentype'),
+  url('../fonts/ProximaNovaRegular/ProximaNova-Regular.woff') format('woff'),
+  url('../fonts/ProximaNovaRegular/ProximaNova-Regular.ttf')  format('truetype'),
+  url('../fonts/ProximaNovaRegular/ProximaNova-Regular.svg#ProximaNova-Regular') format('svg')
   font-weight: normal
   font-style: normal
 
@@ -18,7 +18,7 @@ h1
   font-size: 30px
   font-weight: normal;
   line-height: 42px
-  color: #1c2534
+  color: $black-blue
 
 h4
   font-size: 14px
@@ -30,13 +30,16 @@ h4
   .item
     &-name
       font-size: 16px
-      // line-height: 42px
-      color: #1c2534
+      & .item-link
+        color: #1c2534
+        &:hover
+          color: $dark-green
+
 
     &-role, &-location, &-description
       font-size: 14px
       // line-height: 42px
-      color: #7c8695
+      color: $gray
 
   .follow-link, .add-link
     font-size: 12px
