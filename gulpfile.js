@@ -4,22 +4,26 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const sass = require('gulp-sass');
-const cssmin = require('gulp-cssmin');
 const rename = require('gulp-rename');
 const debug = require('gulp-debug');
 const sourcemaps = require('gulp-sourcemaps');
 const newer = require('gulp-newer');
 const autoprefixer = require('gulp-autoprefixer');
+const include = require("gulp-include");
+const uglify = require('gulp-uglify');
+const htmlmin = require('gulp-htmlmin');
 
 const path = {
   styles: {
     watch: './app/assets/stylesheets/**/*',
+    vendor: './app/assets/stylesheets/vendor.css',
     input: './app/assets/stylesheets/application.sass',
     output: './dist/stylesheets/'
   },
 
   scripts: {
     watch: './app/assets/javascripts/**/*',
+    vendor: './app/assets/javascripts/vendor.js',
     input: './app/assets/javascripts/application.js',
     output: './dist/javascripts/'
   },
@@ -57,26 +61,51 @@ gulp.task('serve', function() {
   // browserSync.watch('dist/**/*.*').on('change', browserSync.reload);
 });
 
-gulp.task('styles', function(){
+gulp.task('styles:vendor', function() {
+  return gulp.src(path.styles.vendor)
+    .pipe(include())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(path.styles.output))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('styles:application', function(){
   return gulp.src(path.styles.input)
   .pipe(sourcemaps.init())
-  .pipe(sass())
-  .on('error', sass.logError)
+  .pipe(sass({outputStyle: 'compressed'})).on('error', sass.logError)
   .pipe(autoprefixer())
-  // .pipe(cssmin())
   .pipe(rename({suffix: '.min'}))
-  .pipe(sourcemaps.write())
+  .pipe(sourcemaps.write('../map'))
   .pipe(gulp.dest(path.styles.output))
   .pipe(browserSync.stream());
 });
 
-gulp.task('scripts', function() {
+gulp.task('styles', ['styles:vendor', 'styles:application']);
+
+gulp.task('scripts:vendor', function() {
+  return gulp.src(path.scripts.vendor)
+    .pipe(include()).on('error', console.log)
+    .pipe(gulp.dest(path.scripts.output))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('scripts:application', function() {
+  return gulp.src(path.scripts.input)
+  .pipe(sourcemaps.init())
+  .pipe(include()).on('error', console.log)
+  .pipe(uglify())
+  .pipe(sourcemaps.write('../map'))
+  .pipe(gulp.dest(path.scripts.output))
+  .pipe(browserSync.stream());
 
 });
+
+gulp.task('scripts', ['scripts:vendor', 'scripts:application']);
 
 gulp.task('html', function() {
   return gulp.src(path.html.input)
   .pipe(newer('dist'))
+  .pipe(htmlmin({collapseWhitespace: true}))
   .pipe(gulp.dest(path.html.output))
 
 });
@@ -100,7 +129,7 @@ gulp.task('clean', function(done) {
 
 
 gulp.task('build', [
-  // 'clean',
+  'clean',
   'styles',
   'scripts',
   'fonts',
@@ -116,5 +145,4 @@ gulp.task('watch', ['serve'], function() {
 
 gulp.task('dev', ['build', 'watch']);
 
-gulp.task('default', function() {
-});
+gulp.task('default', ['dev']);
