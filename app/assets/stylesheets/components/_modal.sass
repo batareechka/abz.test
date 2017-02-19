@@ -1,0 +1,33 @@
+.blocker
+  background-color: rgba(0,0,0,0.6);
+
+.modal
+  display: none
+  padding: 0
+  border-radius: 5px
+
+  &.open
+    display: inline-block
+
+  a.close-modal
+    top: 10px
+    right: 15px
+    width: 17px
+    height: 17px
+    background-image: url('../images/icons/Close.svg')
+    background-size: contain
+
+    &:hover
+      opacity: .8
+
+.modal-header
+  margin-bottom: 10px
+  padding: 10px 15px
+  color: #fff
+  background-color: #87b448
+  border-radius: 5px 5px 0 0
+
+.modal-text
+  padding: 10px 15px
+  margin-bottom: 10px
+  color: #59606b
