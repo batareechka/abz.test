@@ -1,52 +1,45 @@
-.main-navigation
-  width: 212px  
-  margin-bottom: 8px
+.main-navigation 
+  margin-bottom: 10px
 
-  .menu
-    // font-size: 16px
-    // line-height: 42px
+.menu-item 
+  border-bottom: 1px solid #e0e2e6   
+  a
+    position: relative
+    display: block
+    padding: 13px 13px 13px 49px
+    vertical-align: top
+    color: $dark-gray
+    line-height: 24px
+    text-decoration: none
+    @extend .overflow-row
 
-  .menu-item 
-    border-bottom: 1px solid #e0e2e6   
+    &:hover
+      text-decoration: underline
+    &:before
+      content: ''
+      position: absolute
+      top: 13px
+      left: 0
+      width: 24px
+      height: 24px
+      background-position: 100% 0
+      background-repeat: no-repeat
 
+  &:first-child
     a
-      position: relative
-      display: block
-      padding: 13px 13px 13px 49px
-      vertical-align: top
-      color: $dark-gray
-      line-height: 24px
-      text-decoration: none
-
-      &:hover
-        text-decoration: underline
-
+      padding-top: 2px
       &:before
-        content: ''
-        position: absolute
-        top: 13px
-        left: 0
-        width: 24px
-        height: 24px
-        background-position: 100% 0
-        background-repeat: no-repeat
+        top: 2px
 
-    &:first-child
-      a
-        padding-top: 2px
+.feed-link:before
+  background-image: url('../images/icons/Feed.svg')
 
-        &:before
-          top: 2px
+.ask-link:before
+  background-image: url('../images/icons/Ask.svg')
 
-  .feed-link:before
-    background-image: url('../images/icons/Feed.svg')
+.companies-link:before
+  background-image: url('../images/icons/Companies.svg')
 
-  .ask-link:before
-    background-image: url('../images/icons/Ask.svg')
-
-  .companies-link:before
-    background-image: url('../images/icons/Companies.svg')
-
-  .services-link:before
-    background-image: url('../images/icons/Services.svg')
+.services-link:before
+  background-image: url('../images/icons/Services.svg')
 

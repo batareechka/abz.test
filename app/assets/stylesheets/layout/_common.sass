@@ -1,29 +1,26 @@
-section
-  position: relative
-
 .wrapper
   max-width: 1440px
   min-width: 970px
   margin: 0 auto
-  // padding: 11px 15px
   padding: 0 15px
 
 .left
   float: left
+  width: $aside-width
 
 .right
   float: right
-  width: 213px
+  width: $aside-width
 
 .hidden
   display: none
 
-
-
-.clearfix:after
-  content: ''
-  display: table
-  clear: both
+.clearfix
+  &:before,
+  &:after
+    content: ''
+    display: table
+    clear: both
 
 .btn
   padding: 0 19px
@@ -31,37 +28,11 @@ section
   font-size: 14px
   line-height: 30px
   color: #fff
-  border-radius: 5px
-  background-color: #87b448
+  border-radius: $border-radius
+  background-color: $green
   cursor: pointer
   outline: none
-
-  &:active
-    background-color: #73993d
-
-.see-all-link
-  position: absolute
-  top: 0
-  right: 0
-  font-size: 14px
-  line-height: 42px
-  color: #1c2534
-  text-decoration: none
-
   &:hover
-    text-decoration: underline
-
-.list
-  li
-    margin-bottom: 20px
-    
-  .item-img-wrapper
-    margin-right: 10px
-    font-size: 0
-
-  .item-img-link
-    display: inline-block
-    width: 80px
-    height: 80px
-    border-radius: 5px
-    overflow: hidden
+    color: rgba(255,255,255,$opacity-hover)
+  &:active
+    background-color: $dark-green
