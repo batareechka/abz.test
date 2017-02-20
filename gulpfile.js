@@ -48,9 +48,6 @@ const path = {
 
 };
 
-
-//const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
-
 gulp.task('serve', function() {
   browserSync.init({
     server: {
