@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>abz.test.angular</title>
+  <base href="/">
+
+  <link rel="stylesheet" type="text/css" href="stylesheets/vendor.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/application.min.css">
+</head>
+<body ng-cloak ui-view>
+
+  <header class="main-header">
+    <div class="wrapper">
+      <div class="header-content">
+        <div class="left-column ">
+          <a ui-sref="main"  class="logo-link">
+            <img src="images/icons/logo.svg" alt="logo" width="130" height="40">
+          </a>
+          <div class="icons-link-wrapper">
+            <a ui-sref="login" class="notifications-link">Notifications</a>
+            <a href="#" class="chat-link">Chat</a>        
+          </div>
+          <div class="search-wrapper">
+            <input type="text" name="search" placeholder="Company Name" class="search-input">
+          </div> 
+        </div>
+
+        <div class="right-column ">
+          <a href="#" class="user-link">
+            <div class="user-avatar-wrapper">
+              <img src="images/user_avatar_small.jpg" alt="user_avatar" class="user-avatar">
+            </div>              
+            <span class="user-name">Maximillian Beekeeper</span>
+          </a>
+        </div>
+      </div>  
+
+    </div>    
+  </header>
+
+  <div class="wrapper">
+    <aside class="sidebar left">
+
+      <nav class="main-navigation">
+        <ul class="menu">
+          <li class="menu-item">
+            <a ui-sref="main" class="feed-link">Feed</a>            
+          </li>
+          <li class="menu-item">
+            <a ui-sref="main" class="ask-link">Ask a Colleague</a>            
+          </li>
+          <li class="menu-item">
+            <a ui-sref="main" class="companies-link">Companies</a>            
+          </li>
+          <li class="menu-item">
+            <a ui-sref="main.categories" class="services-link">Service Directory</a>            
+          </li>
+        </ul>
+      </nav>
+
+      <section class="advertisement-section">
+        <h4 class="section-header">Advertisement</h4>
+        <div class="adv-img-wrapper">
+          <a href="#">
+            <img src="images/advertisement_poster-1.jpg" alt="advertisement img" width="210" height="300">
+          </a>
+        </div>
+        <footer class="adv-footer">Ads By Denteez.com</footer>
+      </section>
+
+      <section class="media-section featured-companies-section">        
+        <a href="#" class="see-all-link">See All</a>
+        <h4 class="section-header">Featured Companies</h4>
+        <ul class="list companies-list">
+          <li class="list-item companies-item clearfix">
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/company_1_small.jpg" alt="img" width="80" height="80">
+              </a>              
+            </div>
+            <div class="item-name"><a href="#" class="item-link">Company Name</a></div>
+            <div class="item-role">Manufacturer</div>
+            <div class="item-location">Belgrade, Serbia</div>
+            <a href="#" class="follow-link">Follow Now</a>
+          </li>
+          <li class="list-item companies-item clearfix">
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/company_2_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>
+            <div class="item-name"><a href="#" class="item-link">Company Name</a></div>
+            <div class="item-role">Service Provider</div>
+            <div class="item-location">New York, USA</div>
+            <a href="#" class="follow-link">Follow Now</a>
+          </li>
+          <li class="list-item companies-item clearfix">
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/company_3_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>
+            <div class="item-name"><a href="#" class="item-link">Company Name</a></div>
+            <div class="item-role">Supplier</div>
+            <div class="item-location">London, England</div>
+            <a href="#" class="follow-link">Follow Now</a>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="main-footer">
+        <div class="copyright">Denteez Copyright 2015</div>
+        <a href="#" class="footer-link">Terms of use</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+      </footer>
+    </aside>   
+
+    <aside class="sidebar right">
+      <section class="media-section people-section">
+        <a href="#" class="see-all-link">See All</a>
+        <h4 class="section-header">People you may know</h4>        
+        <ul class="list people-list">
+          <li class="list-item people-item clearfix">
+            <div class="item-name"><a href="#" class="item-link">Dennis Adams</a></div>
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/user_1_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-role">Dentist(Practice Owner)</div>
+            <div class="item-location">London, England</div>
+            <a href="#" class="add-link">Add Friend</a>
+          </li>
+          <li class="list-item people-item clearfix">
+            <div class="item-name"><a href="#" class="item-link">Mary Carpenter</a></div>
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/user_2_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-role">Dentist(Practice Owner)</div>
+            <div class="item-location">Belgrade, Serbia</div>
+            <a href="#" class="add-link">Add Friend</a>
+          </li>
+          <li class="list-item people-item clearfix">
+            <div class="item-name"><a href="#" class="item-link">Danielle Salazar</a></div>
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/user_3_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>
+            <div class="item-role">Dentist(Practice Owner)</div>
+            <div class="item-location">Paris, France</div>
+            <a href="#" class="add-link">Add Friend</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="media-section featured-products-section">
+        <a href="#" class="see-all-link">See All</a>
+        <h4 class="section-header">Featured Products</h4>        
+        <ul class="list products-list">
+          <li class="list-item product-item clearfix">
+            <div class="item-name"><a href="#" class="item-link">Product Name</a></div>
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/product_1_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-description">Product Short Description.<br>The quick brown fox jumps over the lazy dog.</div>
+          </li>
+          <li class="list-item product-item clearfix">
+            <div class="item-name"><a href="#" class="item-link">Product Name</a></div>
+            <div class="item-img-wrapper left">
+              <a href="#" class="item-img-link">
+                <img src="images/product_2_small.jpg" alt="img" width="80" height="80">
+              </a>
+            </div>            
+            <div class="item-description">Product Short Description.<br>The quick brown fox jumps over the lazy dog.</div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="advertisement-section">
+        <h4 class="section-header">Advertisement</h4>
+        <div class="adv-img-wrapper">
+          <a href="#">
+            <img src="images/advertisement_poster-2.jpg" alt="advertisement img" width="210" height="300">
+          </a>
+        </div>
+        <footer class="adv-footer">Ads By Denteez.com</footer>
+      </section>
+    </aside>
+
+    <main class="main-content" ui-view>
+    <h2>Please, select 'Service Directory' in navigation list</h2>    
+    </main>    
+  </div>
+
+  <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+  <script type="text/javascript" src="/javascripts/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="/javascripts/app/app.module.js"></script>
+  <script type="text/javascript" src="/javascripts/services/categoriesHttpService.js"></script>
+  <script type="text/javascript" src="/javascripts/categories/categoriesController.js"></script>
+  <script type="text/javascript" src="javascripts/modal.min.js"></script>
+<!--   <script type="text/javascript" src="javascripts/modal/modal.module.js"></script>
+  <script type="text/javascript" src="javascripts/modal/modal.controller.js"></script> -->
+  <script type="text/javascript">
+    angular.bootstrap(document, ['denteez-app']);
+  </script>
+</body>
+</html>

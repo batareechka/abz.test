@@ -1,0 +1,45 @@
+.main-navigation 
+  margin-bottom: 10px
+
+.menu-item 
+  border-bottom: 1px solid #e0e2e6   
+  a
+    position: relative
+    display: block
+    padding: 13px 13px 13px 49px
+    vertical-align: top
+    color: $dark-gray
+    line-height: 24px
+    text-decoration: none
+    @extend .overflow-row
+
+    &:hover
+      text-decoration: underline
+    &:before
+      content: ''
+      position: absolute
+      top: 13px
+      left: 0
+      width: 24px
+      height: 24px
+      background-position: 100% 0
+      background-repeat: no-repeat
+
+  &:first-child
+    a
+      padding-top: 2px
+      &:before
+        top: 2px
+
+.feed-link:before
+  background-image: url('../images/icons/Feed.svg')
+
+.ask-link:before
+  background-image: url('../images/icons/Ask.svg')
+
+.companies-link:before
+  background-image: url('../images/icons/Companies.svg')
+
+.services-link:before
+  background-image: url('../images/icons/Services.svg')
+

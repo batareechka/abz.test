@@ -15,45 +15,45 @@ const htmlmin = require('gulp-htmlmin');
 
 const path = {
   styles: {
-    watch: './app/assets/stylesheets/**/*',
-    vendor: './app/assets/stylesheets/vendor.css',
-    input: './app/assets/stylesheets/application.sass',
+    watch: './frontend/styles/**/*',
+    vendor: './frontend/styles/vendor.css',
+    input: './frontend/styles/application.sass',
     output: './dist/stylesheets/'
   },
 
   scripts: {
-    watch: './app/assets/javascripts/**/*',
-    vendor: './app/assets/javascripts/vendor.js',
-    input: './app/assets/javascripts/application.js',
+    watch: './frontend/javascripts/**/*',
+    vendor: './frontend/javascripts/vendor.js',
+    input: './frontend/javascripts/**/*',
     output: './dist/javascripts/'
   },
 
   html: {
-    watch: './app/index.html',
-    input: './app/index.html',
+    watch: './frontend/views/**/*',
+    input: './frontend/views/**/*',
     output: './dist/'
   },
 
   fonts: {
-    watch: './app/assets/fonts/**/*',
-    input: './app/assets/fonts/**/*',
+    watch: './frontend/resources/fonts/**/*',
+    input: './frontend/resources/fonts/**/*',
     output: './dist/fonts/'
   },
 
   images: {
-    watch: './app/assets/images/**/*',
-    input: './app/assets/images/**/*',
+    watch: './frontend/resources/images/**/*',
+    input: './frontend/resources/images/**/*',
     output: './dist/images/'
   } 
 
 };
 
 gulp.task('serve', function() {
-  browserSync.init({
-    server: {
-      baseDir: 'dist',
-    }
-  });
+  // browserSync.init({
+  //   server: {
+  //     baseDir: 'dist',
+  //   }
+  // });
 
   // browserSync.watch('dist/**/*.*').on('change', browserSync.reload);
 });
@@ -99,10 +99,17 @@ gulp.task('scripts:application', function() {
 
 gulp.task('scripts', ['scripts:vendor', 'scripts:application']);
 
+gulp.task('js', function() {
+  return gulp.src(path.scripts.input)
+  .pipe(newer('dist'))
+  .pipe(gulp.dest(path.scripts.output))
+
+});
+
 gulp.task('html', function() {
   return gulp.src(path.html.input)
   .pipe(newer('dist'))
-  .pipe(htmlmin({collapseWhitespace: true}))
+  // .pipe(htmlmin({collapseWhitespace: true}))
   .pipe(gulp.dest(path.html.output))
 
 });
@@ -128,7 +135,8 @@ gulp.task('clean', function(done) {
 gulp.task('build', [
   'clean',
   'styles',
-  'scripts',
+  // 'scripts',
+  'js',
   'fonts',
   'images',
   'html']
@@ -136,7 +144,7 @@ gulp.task('build', [
 
 gulp.task('watch', ['serve'], function() {
   gulp.watch(path.styles.watch, ['styles'] );
-  gulp.watch(path.scripts.watch, ['scripts'] );
+  gulp.watch(path.scripts.watch, ['js'] );
   gulp.watch(path.html.watch, ['html'] );
 });
 
