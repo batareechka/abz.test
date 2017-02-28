@@ -195,14 +195,27 @@
 
     <main class="main-content" ui-view>
     <h2>Please, select 'Service Directory' in navigation list</h2>    
+    <div ng-controller="ModalController as modal">
+      <div>
+        <md-button ng-click="modal.showCustom($event)" class="md-raised md-warn">
+      Employee Alert!
+      </md-button>
+      </div>
+    </div>
     </main>    
   </div>
 
   <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+  <script type="text/javascript" src="/javascripts/angular-aria.min.js"></script>
+  <script type="text/javascript" src="/javascripts/angular-animate.min.js"></script>
+  <script type="text/javascript" src="/javascripts/angular-material.min.js"></script>
   <script type="text/javascript" src="/javascripts/angular-ui-router.min.js"></script>
   <script type="text/javascript" src="/javascripts/app/app.module.js"></script>
+  <script type="text/javascript" src="/javascripts/app/routes.js"></script>
   <script type="text/javascript" src="/javascripts/services/categoriesHttpService.js"></script>
+  <script type="text/javascript" src="/javascripts/services/modalService.js"></script>
   <script type="text/javascript" src="/javascripts/categories/categoriesController.js"></script>
+  <script type="text/javascript" src="/javascripts/modal/modalController.js"></script>
   <script type="text/javascript" src="javascripts/modal.min.js"></script>
 <!--   <script type="text/javascript" src="javascripts/modal/modal.module.js"></script>
   <script type="text/javascript" src="javascripts/modal/modal.controller.js"></script> -->

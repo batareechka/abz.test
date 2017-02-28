@@ -1,7 +1,7 @@
 <h2 class="page-header">{{categories.header}}</h2>
 <button class="btn btn-add-service">Add New Service</button>
-<div id="preloader" ng-hide="categories.isloaded"></div>
-<ul class="services-list" ng-show="categories.isloaded">
+<div id="preloader" ng-show="categories.isloading"></div>
+<ul class="services-list" ng-show="categories.categoriesIsLoaded">
   <li ng-repeat="category in categories.categories" class="service-item">
     <a ng-href="#">
       <div class="service-icon">

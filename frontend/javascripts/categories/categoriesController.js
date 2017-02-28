@@ -5,28 +5,34 @@
     .controller('CategoriesController', CategoriesController);
 
   CategoriesController.$inject = [
-    'CategoriesHttpService'
+    'CategoriesHttpService',
+    'ModalService'
   ];
 
-  function CategoriesController(categoriesHttpService) {
+  function CategoriesController(categoriesHttpService, modalService) {
     var vm = this;
 
     vm.header = 'Service Directory'
     vm.categories = [];
-    vm.error = {};
-    vm.isloaded = false;
+    vm.categoriesIsLoaded = false
+    vm.isloading = true;
 
-
+    var title, errDescription;
+    
     (function(){
-      return categoriesHttpService.getAllCategories().then(
-        function successCallback(response) {          
+      return categoriesHttpService.getAllCategories(
+        function(response) {          
           vm.categories = response.data.data;
-          vm.isloaded = true;
-        },
-      function errorCallback(response) {
-        console.log(response.data);
-        console.log(response.status);
-      });
+          vm.isloading = false;
+          vm.categoriesIsLoaded = true
+        }, 
+        function(response) {
+          title = response.status + ': ' + response.statusText;
+          errDescription = response.data.error.description;
+          vm.isloading = false;
+          modalService.showAlert(title, errDescription);
+
+        });
     })();
 
   }
