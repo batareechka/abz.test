@@ -24,7 +24,7 @@ const path = {
   scripts: {
     watch: './frontend/javascripts/**/*',
     vendor: './frontend/javascripts/vendor.js',
-    input: './frontend/javascripts/**/*',
+    input: ['./frontend/javascripts/application.js'],
     output: './dist/javascripts/'
   },
 
@@ -82,6 +82,7 @@ gulp.task('styles', ['styles:vendor', 'styles:application']);
 gulp.task('scripts:vendor', function() {
   return gulp.src(path.scripts.vendor)
     .pipe(include()).on('error', console.log)
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(path.scripts.output))
     .pipe(browserSync.stream());
 });
@@ -91,6 +92,7 @@ gulp.task('scripts:application', function() {
   .pipe(sourcemaps.init())
   .pipe(include()).on('error', console.log)
   .pipe(uglify())
+  .pipe(rename({suffix: '.min'}))
   .pipe(sourcemaps.write('../map'))
   .pipe(gulp.dest(path.scripts.output))
   .pipe(browserSync.stream());
@@ -135,8 +137,8 @@ gulp.task('clean', function(done) {
 gulp.task('build', [
   'clean',
   'styles',
-  // 'scripts',
-  'js',
+  'scripts',
+  // 'js',
   'fonts',
   'images',
   'html']
@@ -144,7 +146,7 @@ gulp.task('build', [
 
 gulp.task('watch', ['serve'], function() {
   gulp.watch(path.styles.watch, ['styles'] );
-  gulp.watch(path.scripts.watch, ['js'] );
+  gulp.watch(path.scripts.watch, ['scripts'] );
   gulp.watch(path.html.watch, ['html'] );
 });
 
