@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>abz.test.angular</title>
+  <title>.test.angular</title>
   <base href="/">
 
   <link rel="stylesheet" type="text/css" href="stylesheets/vendor.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/application.min.css">
+  
 </head>
 <body ng-cloak ui-view>
 
@@ -18,7 +19,7 @@
             <img src="images/icons/logo.svg" alt="logo" width="130" height="40">
           </a>
           <div class="icons-link-wrapper">
-            <a ui-sref="login" class="notifications-link">Notifications</a>
+            <a href="#" class="notifications-link">Notifications</a>
             <a href="#" class="chat-link">Chat</a>        
           </div>
           <div class="search-wrapper">
@@ -48,7 +49,7 @@
             <a ui-sref="main" class="feed-link">Feed</a>            
           </li>
           <li class="menu-item">
-            <a ui-sref="main" class="ask-link">Ask a Colleague</a>            
+            <a ui-sref="support" class="ask-link">Support</a>            
           </li>
           <li class="menu-item">
             <a ui-sref="main" class="companies-link">Companies</a>            
@@ -194,31 +195,14 @@
     </aside>
 
     <main class="main-content" ui-view>
-    <h2>Please, select 'Service Directory' in navigation list</h2>    
-    <div ng-controller="ModalController as modal">
-      <div>
-        <md-button ng-click="modal.showCustom($event)" class="md-raised md-warn">
-      Employee Alert!
-      </md-button>
-      </div>
-    </div>
+    <h2>Please, select 'Support' or 'Service Directory' in navigation list</h2>    
     </main>    
   </div>
 
-  <script type="text/javascript" src="/javascripts/angular.min.js"></script>
-  <script type="text/javascript" src="/javascripts/angular-aria.min.js"></script>
-  <script type="text/javascript" src="/javascripts/angular-animate.min.js"></script>
-  <script type="text/javascript" src="/javascripts/angular-material.min.js"></script>
-  <script type="text/javascript" src="/javascripts/angular-ui-router.min.js"></script>
-  <script type="text/javascript" src="/javascripts/app/app.module.js"></script>
-  <script type="text/javascript" src="/javascripts/app/routes.js"></script>
-  <script type="text/javascript" src="/javascripts/services/categoriesHttpService.js"></script>
-  <script type="text/javascript" src="/javascripts/services/modalService.js"></script>
-  <script type="text/javascript" src="/javascripts/categories/categoriesController.js"></script>
-  <script type="text/javascript" src="/javascripts/modal/modalController.js"></script>
-  <script type="text/javascript" src="javascripts/modal.min.js"></script>
-<!--   <script type="text/javascript" src="javascripts/modal/modal.module.js"></script>
-  <script type="text/javascript" src="javascripts/modal/modal.controller.js"></script> -->
+
+  <script type="text/javascript" src="/javascripts/vendor.min.js"></script>
+  <script type="text/javascript" src="javascripts/application.min.js"></script>
+
   <script type="text/javascript">
     angular.bootstrap(document, ['denteez-app']);
   </script>

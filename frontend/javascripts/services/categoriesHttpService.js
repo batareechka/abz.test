@@ -6,10 +6,11 @@
     .factory('CategoriesHttpService', CategoriesHttpService);
 
   CategoriesHttpService.$inject = [
+    'config',
     '$http'
   ];
 
-  function CategoriesHttpService(http) {
+  function CategoriesHttpService(config, http) {
     var service = {
       getAllCategories: getAllCategories,
     };
@@ -19,7 +20,8 @@
     return service;
 
     function getAllCategories(successCallback, errorCallback) {
-      http.get('http://504080.com/api/v1/services/categories', {
+      // http.get('http://504080.com/api/v1/services/categories', {
+      http.get(config.getCategoriesUrl, {
         headers: {
           'Authorization': authToken
         }

@@ -4,3 +4,4 @@
 //= require ./categories/*
 //= require ./modal/*
 //= require ./support/*
+//= require ./directives/*

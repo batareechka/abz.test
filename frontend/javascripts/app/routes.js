@@ -6,7 +6,7 @@
       
       function(stateProvider, urlRouterProvider, locationProvider) {
         
-        urlRouterProvider.otherwise("login");
+        // urlRouterProvider.otherwise("login");
 
         stateProvider
           .state('main', {
@@ -19,9 +19,13 @@
             controller: 'CategoriesController',
             controllerAs: 'categories'
           })
-          .state('login', {
-            url: 'login',
-            templateUrl: '/login/login.html'
+          .state('support', {
+            url: 'support',
+            templateUrl: '/support/support.html'
+          })
+          .state('uploader', {
+            url: 'uploader',
+            templateUrl: '/uploader/uploader.html'
           });
       
         // locationProvider.html5Mode(true);
