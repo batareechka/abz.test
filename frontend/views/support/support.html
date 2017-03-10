@@ -28,104 +28,108 @@
           <label class="form-label">Enquiry Type *</label><br>
           <div ng-class="{'invalid-input': supportForm.$submitted && !support.enquiryIsValid}"
           class="dropdown-wrapper">
-            <div 
-            dropdown-select="support.enquiryTypes" dropdown-model="support.enquirySelected" dropdown-item-label="name"
-            ng-click="support.changeEnquiry()" class="form-input form-dropdown">
-            </div>   
-          </div>  
-          <span ng-show="supportForm.$submitted  && !support.enquiryIsValid" class="validation-message">Enquiry Type cannot be blank!</span>   
-        </div>
+          <div 
+          dropdown-select="support.enquiryTypes" dropdown-model="support.enquirySelected" dropdown-item-label="name"
+          ng-click="support.changeEnquiry()" class="form-input form-dropdown">
+        </div>   
+      </div>  
+      <span ng-show="supportForm.$submitted  && !support.enquiryIsValid" class="validation-message">Enquiry Type cannot be blank!</span>   
+    </div>
 
-        <div class="form-group" ng-show="support.showOtherInput">
-          <input type="text" name="other" ng-model="support.formData.other" class="form-input" placeholder="Other" ng-required="support.showOtherInput"
-          ng-class="{'invalid-input': supportForm.$submitted && supportForm.other.$error.required}">          
-          <span ng-show="supportForm.$submitted && supportForm.other.$error.required" class="validation-message">Other cannot be blank in this case!</span>
-        </div>
+    <div class="form-group" ng-show="support.showOtherInput">
+      <input type="text" name="other" ng-model="support.formData.other" class="form-input" placeholder="Other" ng-required="support.showOtherInput"
+      ng-class="{'invalid-input': supportForm.$submitted && supportForm.other.$error.required}">          
+      <span ng-show="supportForm.$submitted && supportForm.other.$error.required" class="validation-message">Other cannot be blank in this case!</span>
+    </div>
 
-        <div class="form-row clearfix">
-          <div class="form-group">
-            <label class="form-label">Name *</label><br>
-            <input type="text" name="name" ng-model="support.formData.name" class="form-input" placeholder="Dentist" required
-            ng-class="{'invalid-input': supportForm.$submitted  && supportForm.name.$invalid}">
-            <span ng-show="supportForm.$submitted  && supportForm.name.$invalid" class="validation-message">Name cannot be blank</span>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Email *</label><br>
-            <input type="email" name="email" ng-model="support.formData.email" class="form-input" placeholder="rachelm@gmail.com" required
-            ng-class="{'invalid-input': supportForm.$submitted  && supportForm.email.$invalid}">
-            <span ng-show="supportForm.$submitted  && supportForm.email.$invalid" class="validation-message">Please enter a valid email address!</span>
-          </div>
-        </div>      
-
-        <div class="form-group">
-          <label class="form-label">Subject *</label><br>
-          <input type="text" name="subject" ng-model="support.formData.subject" class="form-input" required
-          ng-class="{'invalid-input': supportForm.$submitted && supportForm.subject.$invalid}">
-          <span ng-show="supportForm.$submitted && supportForm.subject.$invalid" class="validation-message">Subject cannot be blank!</span>
-        </div>
-
-        <div class="form-group">
-          <span class="tip">(<span>{{support.formData.description.length}}</span>/1000)</span>
-          <label class="form-label">Description *</label>
-          <textarea name="description" class="form-input form-textarea" ng-model="support.formData.description" maxlength="1000" required
-          ng-class="{'invalid-input': supportForm.$submitted && supportForm.description.$invalid}"></textarea>
-          <span ng-show="supportForm.$submitted && supportForm.description.$invalid" class="validation-message">Description cannot be blank!</span>
-        </div>      
-      
-
-        <div class="form-group">        
-          <div class="uploader clearfix">
-            <ul class="pic-to-upload-list">
-              <li ng-repeat="thumb in previews" class="pic-to-upload-item pic-preview">
-                <!-- <img style="width: 130px; height: 130px" alt="photo here" src="{{thumb}}"> -->
-                <div class="preview-img" style="background-image: url({{thumb}})"></div>
-                <button type="button" 
-                        ng-click="support.removePic(thumb)"
-                        class="btn-remove-pic">
-                  Remove
-                </button>
-              </li>
-            </ul>
-
-            <label class="file-upload">
-              <div class="pic-wrapper">
-                <span class="add">Add photo</span><br>
-                <span class="pic-parameters">Minimum size of<br>300x300 jpeg jpg<br>png 5 MB</span><br>
-                <span ng-hide="support.picIsValid" class="pic-validation">The photo does<br>not meet<br> the requirements</span>
-              </div>
-              <input type="file" accept="image/*" photo-file="photo_file"
-              onchange="angular.element(this).scope().previewPhoto(event)"
-              class="file-input">
-            </label>  {{support.picIsValid}}          
-          </div>
-        </div>
+    <div class="form-row clearfix">
+      <div class="form-group">
+        <label class="form-label">Name *</label><br>
+        <input type="text" name="name" ng-model="support.formData.name" class="form-input" placeholder="Dentist" required
+        ng-class="{'invalid-input': supportForm.$submitted  && supportForm.name.$invalid}">
+        <span ng-show="supportForm.$submitted  && supportForm.name.$invalid" class="validation-message">Name cannot be blank</span>
       </div>
 
-      <button type="submit" ng-click="support.clickForm(supportForm)" class="btn btn-submit">Submit</button>
-      
-    </form>
-  </div>
+      <div class="form-group">
+        <label class="form-label">Email *</label><br>
+        <input type="email" name="email" ng-model="support.formData.email" class="form-input" placeholder="rachelm@gmail.com" required
+        ng-class="{'invalid-input': supportForm.$submitted  && supportForm.email.$invalid}">
+        <span ng-show="supportForm.$submitted  && supportForm.email.$invalid" class="validation-message">Please enter a valid email address!</span>
+      </div>
+    </div>      
 
-  <div class="login-text">Already have an account? <a href="#" class="login-link">Log in now</a></div>
+    <div class="form-group">
+      <label class="form-label">Subject *</label><br>
+      <input type="text" name="subject" ng-model="support.formData.subject" class="form-input" required
+      ng-class="{'invalid-input': supportForm.$submitted && supportForm.subject.$invalid}">
+      <span ng-show="supportForm.$submitted && supportForm.subject.$invalid" class="validation-message">Subject cannot be blank!</span>
+    </div>
+
+    <div class="form-group">
+      <span class="tip">(<span>{{support.formData.description.length}}</span>/1000)</span>
+      <label class="form-label">Description *</label>
+      <textarea name="description" class="form-input form-textarea" ng-model="support.formData.description" maxlength="1000" required
+      ng-class="{'invalid-input': supportForm.$submitted && supportForm.description.$invalid}"></textarea>
+      <span ng-show="supportForm.$submitted && supportForm.description.$invalid" class="validation-message">Description cannot be blank!</span>
+    </div>      
+    
+
+    <div class="form-group">        
+      <div class="uploader clearfix">
+        <ul class="pic-to-upload-list">
+          <li ng-repeat="thumb in previews" class="pic-to-upload-item pic-preview">
+            <!-- <img style="width: 130px; height: 130px" alt="photo here" src="{{thumb}}"> -->
+            <div class="preview-img" style="background-image: url({{thumb}})"></div>
+            <button type="button" 
+            ng-click="support.removePic(thumb)"
+            class="btn-remove-pic">
+            Remove
+          </button>
+        </li>
+      </ul>
+
+      <label class="file-upload">
+        <div class="pic-wrapper">
+          <span class="add">Add photo</span><br>
+          <span class="pic-parameters">Minimum size of<br>300x300 jpeg jpg<br>png 5 MB</span><br>
+          <span ng-hide="support.picIsValid" class="pic-validation">The photo does<br>not meet<br> the requirements</span>
+        </div>
+        <input type="file" accept="image/*" photo-file="photo_file"
+        onchange="angular.element(this).scope().previewPhoto(event)"
+        class="file-input">
+      </label>  {{support.picIsValid}}          
+    </div>
+  </div>
+</div>
+
+<button type="submit" ng-click="support.clickForm(supportForm)" class="btn btn-submit">Submit</button>
+
+</form>
+</div>
+
+<div class="login-text">Already have an account? <a href="#" class="login-link">Log in now</a></div>
 </section>
 
 <section class="about-section">
-  <h2 class="about-header">About Denteez</h2>
+  <div class="wrapper clearfix">
+    <h2 class="about-header">About Denteez</h2>
 
-  <p class="about-paragraph">
-    Why is it always so difficult to find what you are looking for in dentistry? Whether it is the latest advancement in technology or techniques or simply a review or understanding of the vast amount of products? Perhaps finding someone to just fix your broken equipment or simply hiring new staff or looking for that new job?
-  </p>
-  <p class="about-paragraph">
-    Our mission is to give every dental professional the possibility to discuss and share all aspects of their profession, their practice and their business. We aim to make the world of dentistry easy and accessible, so every dental professional can find what they are looking for quickly and easily all in one place.
-  </p>
+    <p class="about-paragraph">
+      Why is it always so difficult to find what you are looking for in dentistry? Whether it is the latest advancement in technology or techniques or simply a review or understanding of the vast amount of products? Perhaps finding someone to just fix your broken equipment or simply hiring new staff or looking for that new job?
+    </p>
+    <p class="about-paragraph">
+      Our mission is to give every dental professional the possibility to discuss and share all aspects of their profession, their practice and their business. We aim to make the world of dentistry easy and accessible, so every dental professional can find what they are looking for quickly and easily all in one place.
+    </p>
+  </div>
 </section>
 
 <footer class="login-footer">
-  <div class="copyright">Denteez Copyright 2015</div>
-  <div class="footer-links">
-    <a href="#" class="footer-link">Support</a>
-    <a href="#" class="footer-link">Privacy Policy</a>
-    <a href="#" class="footer-link">Terms of use</a>
+  <div class="wrapper clearfix">
+    <div class="copyright">Denteez Copyright 2015</div>
+    <div class="footer-links">
+      <a href="#" class="footer-link">Support</a>
+      <a href="#" class="footer-link">Privacy Policy</a>
+      <a href="#" class="footer-link">Terms of use</a>
+    </div>
   </div>
 </footer>
