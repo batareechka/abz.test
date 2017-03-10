@@ -20,7 +20,6 @@
     return service;
 
     function getAllCategories(successCallback, errorCallback) {
-      // http.get('http://504080.com/api/v1/services/categories', {
       http.get(config.getCategoriesUrl, {
         headers: {
           'Authorization': authToken

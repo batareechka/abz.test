@@ -14,15 +14,17 @@
     var vm = this;
 
     vm.enquiryTypes = [];
+    vm.enquirySelected = {name: 'Select enquiry type'}; // Must be an object
     vm.enquiryIsValid = false;
-    vm.otherIsValid = true;
+
     vm.showOtherInput = false;
-    vm.formIsValid = false;
-    vm.enquirySelected = {name: 'Select enquiry type'};
-    $scope.photoIsValid = true;
+    vm.otherIsValid = true;
+    
+    vm.formIsValid = false;       
+    
 
     vm.formData = {
-      enquiryType: vm.enquirySelected.name, // Must be an object
+      enquiryType: vm.enquirySelected.name,
       other: '',
       name: '',
       email: '',
@@ -30,21 +32,13 @@
       description: '',
       files: []
     };
-    $scope.photo_file =[];
+
+    $scope.photoIsValid = true;
     $scope.attachments = [];
     
-
+    vm.removePic = removePic;
     vm.changeEnquiry = changeEnquiry;
     vm.submitForm = submitForm;
-    vm.removePic = removePic;
-
-
-
-    function removePic(previewItem) {  
-      var indexToRemove = $scope.attachments.indexOf(previewItem);
-      $scope.attachments.splice(indexToRemove, 1);
-    }
-
 
     (function() {
       supportHttpService.getEnquiryType(
@@ -56,10 +50,17 @@
           console.log(response);
           // title = response.status + ': ' + response.statusText;
           // errDescription = response.data.error.description;
-          // vm.isloading = false;
           // modalService.showAlert(title, errDescription);
         });
     })();
+    
+
+
+
+    function removePic(previewItem) {  
+      var indexToRemove = $scope.attachments.indexOf(previewItem);
+      $scope.attachments.splice(indexToRemove, 1);
+    }    
 
     function changeEnquiry() {
 
@@ -111,7 +112,6 @@
 
           title = response.status + ': ' + response.statusText;
           errDescription = response.data.error.description;
-          // vm.isloading = false;
           modalService.showAlert(title, errDescription);
         });
     }
