@@ -45,14 +45,14 @@
     <div class="form-row clearfix">
       <div class="form-group">
         <label class="form-label">Name *</label><br>
-        <input type="text" name="name" ng-model="support.formData.name" class="form-input" placeholder="Dentist" required
+        <input type="text" name="name" ng-model="support.formData.name" class="form-input" placeholder="Enter your name" required
         ng-class="{'invalid-input': supportForm.$submitted  && supportForm.name.$invalid}">
         <span ng-show="supportForm.$submitted  && supportForm.name.$invalid" class="validation-message">Name cannot be blank</span>
       </div>
 
       <div class="form-group">
         <label class="form-label">Email *</label><br>
-        <input type="email" name="email" ng-model="support.formData.email" class="form-input" placeholder="rachelm@gmail.com" required
+        <input type="email" name="email" ng-model="support.formData.email" class="form-input" placeholder="Enter your email" required
         ng-class="{'invalid-input': supportForm.$submitted  && supportForm.email.$invalid}">
         <span ng-show="supportForm.$submitted  && supportForm.email.$invalid" class="validation-message">Please enter a valid email address!</span>
       </div>
@@ -60,7 +60,7 @@
 
     <div class="form-group">
       <label class="form-label">Subject *</label><br>
-      <input type="text" name="subject" ng-model="support.formData.subject" class="form-input" required
+      <input type="text" name="subject" ng-model="support.formData.subject" class="form-input" placeholder="Enter subject" required
       ng-class="{'invalid-input': supportForm.$submitted && supportForm.subject.$invalid}">
       <span ng-show="supportForm.$submitted && supportForm.subject.$invalid" class="validation-message">Subject cannot be blank!</span>
     </div>
@@ -68,7 +68,7 @@
     <div class="form-group">
       <span class="tip">(<span>{{support.formData.description.length}}</span>/1000)</span>
       <label class="form-label">Description *</label>
-      <textarea name="description" class="form-input form-textarea" ng-model="support.formData.description" maxlength="1000" required
+      <textarea name="description" class="form-input form-textarea" ng-model="support.formData.description" maxlength="1000" placeholder="Description" required
       ng-class="{'invalid-input': supportForm.$submitted && supportForm.description.$invalid}"></textarea>
       <span ng-show="supportForm.$submitted && supportForm.description.$invalid" class="validation-message">Description cannot be blank!</span>
     </div>      
