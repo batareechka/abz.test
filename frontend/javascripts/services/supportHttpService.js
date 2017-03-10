@@ -23,16 +23,10 @@
         .then(successCallback, errorCallback);
     }
 
-    function sendEnquiry(data, files, successCallback, errorCallback) {
+    function sendEnquiry(data, successCallback, errorCallback) {
+      console.log('data');
+      console.log(data);
       var fd = new FormData();
-    //     // for(var key in data)
-    //     //   fd.append(key, data[key]);
-      // angular.forEach(data, function(value, key) {
-      //   if(key !== 'other') {
-      //     console.log(key + ' ' + value);
-      //     fd.append(key, value);
-      //   }
-      // });
 
       fd.append('description', data.description);
       fd.append('email', data.email);
@@ -40,7 +34,7 @@
       fd.append('subject', data.subject);
       fd.append('user_name', data.name);
 
-      angular.forEach(files, function(value, key) {
+      angular.forEach(data.files, function(value, key) {
         fd.append('file[' + key +']', value);
       });
 

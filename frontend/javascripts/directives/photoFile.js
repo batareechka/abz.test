@@ -2,7 +2,7 @@
   'use strict';
 
 angular.module('denteez-app')
-  .directive('photoFile', ['$parse', function($parse){
+  .directive('photoFile', ['$parse', 'ValidationService', function($parse, validationService){
     return {
       restrict: 'A',
       link: function(scope, element, attrs){
@@ -11,17 +11,34 @@ angular.module('denteez-app')
 
 
         element.bind('change', function(){
-          if(element[0].files[0].size <= 5000000) {
-            console.log('menshe');
-            scope.files.push(element[0].files[0]);
-            modelSetter(scope, element[0].files[0]);
-            scope.$apply;
-          }        
-          else {
-            console.log('bolshe');
-            modelSetter(scope, '');
-          }  
-          console.log(scope.files);
+          var file = element[0].files[0];
+          validationService.validateImg(file, function(isValid) {
+
+            if(isValid) {
+
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                scope.$apply(function(){
+                  scope.attachments.push(
+                    {
+                      file: file,
+                      preview: e.target.result
+                    });
+                  scope.photo = e.target.result;
+                })
+              }
+
+              reader.readAsDataURL(file);
+
+              modelSetter(scope, file);            
+            }       
+            else {
+              modelSetter(scope, '');
+            } 
+            scope.photoIsValid = isValid;
+            scope.$apply();
+          });
+
         });
       }
     }

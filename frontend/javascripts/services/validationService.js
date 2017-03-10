@@ -1,47 +1,46 @@
-// (function() {
-//   'use strict';
+(function() {
+  'use strict';
 
-//   angular
-//     .module('denteez-app')
-//     .factory('ValidationService', ValidationService);
+  angular
+    .module('denteez-app')
+    .factory('ValidationService', ValidationService);
 
-//   CategoriesHttpService.$inject = [
+  ValidationService.$inject = [
 
-//   ];
+  ];
 
-//   function ValidationService(file) {
-//     var service = {
-//       validateImg: validateImg,
-//     };
+  function ValidationService(file) {
+    var service = {
+      validateImg: validateImg,
+    };
 
-//     return service;
+    return service;
 
-//     function validateImg(successCallback, errorCallback) {
-//       var _URL = window.URL || window.webkitURL;
-//       var imgW, imgH
-//       var resolutionIsValid = false;
-//       var sizeIsValid = file.size <= 5000000;
+    function validateImg(file, callback) {
+      var _URL = window.URL || window.webkitURL;
+      var imgW, imgH
+      var resolutionIsValid = false;
+      
+      var sizeIsValid = file.size <= 5000000;
 
-//       var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-//       var typeIsValid = '|jpg|jpeg|png|ipg|'.indexOf(type) !== -1;
+      var type = '|' + file.type.slice(file.type.lastIndexOf('/') + 1) + '|';
+      var typeIsValid = '|jpg|jpeg|png|ipg|'.indexOf(type) !== -1;
 
-//       // var img = new Image();
-//       // img.src = _URL.createObjectURL(file); 
+      var img = new Image();
+      img.src = _URL.createObjectURL(file); 
 
-//       // img.onload = function() {
-//       //   imgW = this.width;
-//       //   imgH = this.height;
-//       //   console.log(imgW + ' ' + imgH);
-//       //   resolutionIsValid = (imgW >= 300) && (imgH >= 300);
+      img.onload = function() {
+        imgW = this.width;
+        imgH = this.height;
+        resolutionIsValid = (imgW >= 300) && (imgH >= 300);
+
+        var isValid = sizeIsValid && typeIsValid && resolutionIsValid;
+
+        callback(isValid);
+      };
+
+    }
         
-//       // };           
+  }
 
-//       console.log(sizeIsValid);
-//       console.log(typeIsValid);   
-//       return sizeIsValid && typeIsValid;   
-
-//     }
-        
-//   }
-
-// })();
+})();

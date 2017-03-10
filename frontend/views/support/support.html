@@ -75,29 +75,28 @@
     
 
     <div class="form-group">        
-      <div class="uploader clearfix">
-        <ul class="pic-to-upload-list">
-          <li ng-repeat="thumb in previews" class="pic-to-upload-item pic-preview">
-            <!-- <img style="width: 130px; height: 130px" alt="photo here" src="{{thumb}}"> -->
-            <div class="preview-img" style="background-image: url({{thumb}})"></div>
-            <button type="button" 
+      <div class="photos-container">
+        <div ng-repeat="thumb in attachments" class="preview-item">
+          <div class="preview-img" style="background-image: url({{thumb.preview}})"></div>
+          <button type="button" 
             ng-click="support.removePic(thumb)"
-            class="btn-remove-pic">
+            class="btn-remove-photo">
             Remove
           </button>
-        </li>
-      </ul>
-
-      <label class="file-upload">
-        <div class="pic-wrapper">
-          <span class="add">Add photo</span><br>
-          <span class="pic-parameters">Minimum size of<br>300x300 jpeg jpg<br>png 5 MB</span><br>
-          <span ng-hide="support.picIsValid" class="pic-validation">The photo does<br>not meet<br> the requirements</span>
         </div>
-        <input type="file" accept="image/*" photo-file="photo_file"
-        onchange="angular.element(this).scope().previewPhoto(event)"
-        class="file-input">
-      </label>  {{support.picIsValid}}          
+
+      <div class="photo-uploader-wrapper">
+        <label class="photo-uploader">
+          <div class="photo-desc">
+            <span class="add">Add photo</span><br>
+            <span class="pic-parameters">Minimum size of<br>300x300 jpeg jpg<br>png 5 MB</span><br>
+            <span ng-hide="photoIsValid" class="pic-validation">The photo does<br>not meet<br> the requirements</span>
+          </div>
+          <input type="file" accept="image/*" photo-file="photo_file" class="file-input">
+        </label>   
+      </div>
+      
+            
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
       
       function(stateProvider, urlRouterProvider, locationProvider) {
         
-        // urlRouterProvider.otherwise("login");
+        // urlRouterProvider.otherwise('main');
 
         stateProvider
           .state('main', {

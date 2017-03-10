@@ -19,8 +19,7 @@
     vm.showOtherInput = false;
     vm.formIsValid = false;
     vm.enquirySelected = {name: 'Select enquiry type'};
-    vm.picIsValid = true;
-    vm.validateImg = validateImg;
+    $scope.photoIsValid = true;
 
     vm.formData = {
       enquiryType: vm.enquirySelected.name, // Must be an object
@@ -32,77 +31,19 @@
       files: []
     };
     $scope.photo_file =[];
-    $scope.files = [];
-    $scope.previews = [];
     $scope.attachments = [];
     
 
     vm.changeEnquiry = changeEnquiry;
     vm.submitForm = submitForm;
     vm.removePic = removePic;
-    $scope.previewPhoto = previewPhoto;
 
-    function previewPhoto(event) {
-      var files = event.target.files;
-      var file = files[files.length-1];
 
-      vm.picIsValid = vm.validateImg(file);
 
-      if (vm.picIsValid) {
-
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          $scope.$apply(function(){
-            $scope.previews.push(e.target.result);
-            $scope.attachments.push(
-              {
-                file: file,
-                preview: e.target.result
-              });
-            $scope.photo = e.target.result;
-          })
-        }
-        reader.readAsDataURL(file);
-      }
-  }
-     
-      
-
-    function validateImg(file) {
-      var _URL = window.URL || window.webkitURL;
-      var imgW, imgH
-      var resolutionIsValid = false;
-      var sizeIsValid = file.size <= 5000000;
-
-      var type = '|' + file.type.slice(file.type.lastIndexOf('/') + 1) + '|';
-      var typeIsValid = '|jpg|jpeg|png|ipg|'.indexOf(type) !== -1;
-
-      // var img = new Image();
-      // img.src = _URL.createObjectURL(file); 
-
-      // img.onload = function() {
-      //   imgW = this.width;
-      //   imgH = this.height;
-      //   console.log(imgW + ' ' + imgH);
-      //   resolutionIsValid = (imgW >= 300) && (imgH >= 300);
-        
-      // };   
-      
-      return sizeIsValid && typeIsValid;   
+    function removePic(previewItem) {  
+      var indexToRemove = $scope.attachments.indexOf(previewItem);
+      $scope.attachments.splice(indexToRemove, 1);
     }
-
-    function removePic(previewItem) {    
-     var indexToRemove = $scope.previews.indexOf(previewItem);
-     $scope.previews.splice(indexToRemove, 1);
-     $scope.files.splice(indexToRemove, 1);
-     $scope.attachments.splice(indexToRemove, 1);
-
-    // console.log($scope.files);
-    // console.log($scope.previews);
-    // console.log($scope.attachments);
-
-
-  }
 
 
     (function() {
@@ -118,8 +59,6 @@
           // vm.isloading = false;
           // modalService.showAlert(title, errDescription);
         });
-
-      // initUploader();
     })();
 
     function changeEnquiry() {
@@ -149,15 +88,22 @@
 
     if (form.$valid && !form.other.$error.required && vm.enquiryIsValid) {
 
-      supportHttpService.sendEnquiry(vm.formData, $scope.files,
+      angular.forEach($scope.attachments, function(value, key) {
+        console.log(value);
+        vm.formData.files.push(value.file);
+      });
+      console.log('formData');
+      console.log(vm.formData.files);
+
+      supportHttpService.sendEnquiry(vm.formData,
         function(response){
           var title, successMessage;
           title = response.status + ': ' + response.statusText;
           successMessage = response.data.data.message;
           modalService.showAlert(title, successMessage);
           vm.formData = {};
+          $scope.attachments.splice(0, $scope.attachments.length);
           form.$submitted = false;
-          // console.log(vm.formData);
         },
         function(response){
           console.log(response);
