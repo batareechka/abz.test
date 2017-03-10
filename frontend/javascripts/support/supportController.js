@@ -90,11 +90,8 @@
     if (form.$valid && !form.other.$error.required && vm.enquiryIsValid) {
 
       angular.forEach($scope.attachments, function(value, key) {
-        console.log(value);
         vm.formData.files.push(value.file);
       });
-      console.log('formData');
-      console.log(vm.formData.files);
 
       supportHttpService.sendEnquiry(vm.formData,
         function(response){

@@ -24,8 +24,6 @@
     }
 
     function sendEnquiry(data, successCallback, errorCallback) {
-      console.log('data');
-      console.log(data);
       var fd = new FormData();
 
       fd.append('description', data.description);
